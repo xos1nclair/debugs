@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goal — DEBUGS</title>
+  <link rel="stylesheet" href="debugs.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <section id="header-section">
+    <header class="site-header container">
+      <div class="logo">
+        <img src="Debugs (1).png" alt="DEBUGS Logo" class="logo-img">
+        <span>Baranggay Document System</span>
+      </div>
+      <button class="burger-btn" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </header>
+  </section>
+
+  <!-- OVERLAY -->
+  <div class="sidenav-overlay" id="sidenavOverlay"></div>
+
+  <!-- SIDENAV -->
+  <nav class="sidenav" id="sidenav">
+    <div class="sidenav-logo">
+      <img src="Debugs (1).png" alt="DEBUGS Logo">
+      <span>DEBUGS</span>
+    </div>
+    <a href="debugs-v3.html"              class="sidenav-link"><i class="bi bi-house"></i> Home</a>
+    <a href="capstone.html"               class="sidenav-link"><i class="bi bi-journal-text"></i> Capstone</a>
+    <a href="goal.html"                   class="sidenav-link sidenav-active"><i class="bi bi-bullseye"></i> Goal</a>
+    <a href="members.html"                class="sidenav-link"><i class="bi bi-people"></i> Members</a>
+    <a href="Debugs Registration.html" class="sidenav-link sidenav-login"><i class="bi bi-box-arrow-in-right"></i> Log In</a>
+  </nav>
+
+  <!--GOAL CONTENT-->
+  <section class="content-section">
+    <div class="container">
+
+      <!--PAGE TITLE-->
+      <h3 class="reveal">Our Goal</h3>
+
+      <!--INTRO-->
+      <div class="section-body reveal">
+        <p>
+          <!--Goal intro-->
+          The DEBUGS team is committed to building a reliable, accessible, and efficient
+          document management system for the baranggay. Our goals drive every decision
+          we make as a team throughout the development of this project.
+        </p>
+      </div>
+
+      <!--GOAL CARDS-->
+      <div class="info-cards reveal">
+
+        <div class="info-card">
+          <div class="info-card-icon"><i class="bi bi-speedometer2"></i></div>
+          <!--Goal title-->
+          <h4>Efficiency</h4>
+          <!--Goal description-->
+          <p>Reduce document processing time by enabling online submission and tracking for baranggay residents.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon"><i class="bi bi-shield-check"></i></div>
+          <!--Goal title-->
+          <h4>Security</h4>
+          <!--Goal description-->
+          <p>Ensure that all resident data and uploaded documents are stored securely with proper access controls.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon"><i class="bi bi-phone"></i></div>
+          <!--Goal title -->
+          <h4>Accessibility</h4>
+          <!--Goal description-->
+          <p>Make baranggay services available to all residents anytime, anywhere through a mobile-friendly platform.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon"><i class="bi bi-people"></i></div>
+          <!--Goal title-->
+          <h4>Community Impact</h4>
+          <!--Goal description-->
+          <p>Empower the community by reducing the need for in-person visits and cutting down on paperwork.</p>
+        </div>
+
+      </div>
+
+      <!--MISSION & VISION-->
+      <div class="mission-vision reveal">
+
+        <div class="mv-block">
+          <h4><i class="bi bi-flag"></i> Mission</h4>
+          <!--Mission statement-->
+          <p>
+            To harness the power of technology to design and develop innovative systems that address
+            real-world challenges in baranggay document management, fostering collaboration,
+            creativity, and continuous growth as future leaders in technology.
+          </p>
+        </div>
+
+        <div class="mv-block">
+          <h4><i class="bi bi-eye"></i> Vision</h4>
+          <!--Vision statement-->
+          <p>
+            To become recognized leaders in technology and system development, applying our knowledge
+            and creativity to shape the future of digital solutions that empower communities and
+            industries through transformative technologies.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer-homepage">
+    <b>All Rights Reserved &copy; 2025 DEBUGS.</b>
+    <div class="contact-info">
+      <span><i class="bi bi-envelope-fill"></i> Debugs@web.com</span>
+      <span><i class="bi bi-telephone-fill"></i> +63 415874586</span>
+      <span><i class="bi bi-geo-alt-fill"></i> Kolehiyo ng Lungsod ng Dasmari&ntilde;as</span>
+    </div>
+  </footer>
+
+  <script>
+    var burgerBtn = document.getElementById('burgerBtn');
+    var sidenav   = document.getElementById('sidenav');
+    var overlay   = document.getElementById('sidenavOverlay');
+
+    function openNav() {
+      sidenav.classList.add('open');
+      overlay.classList.add('show');
+      burgerBtn.classList.add('active');
+      burgerBtn.setAttribute('aria-expanded', 'true');
+      sidenav.insertBefore(burgerBtn, sidenav.firstChild);
+    }
+
+    function closeNav() {
+      sidenav.classList.remove('open');
+      overlay.classList.remove('show');
+      burgerBtn.classList.remove('active');
+      burgerBtn.setAttribute('aria-expanded', 'false');
+      document.querySelector('.site-header').appendChild(burgerBtn);
+    }
+
+    burgerBtn.addEventListener('click', function() {
+      sidenav.classList.contains('open') ? closeNav() : openNav();
+    });
+
+    overlay.addEventListener('click', closeNav);
+
+    var reveals = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry, i) {
+        if (entry.isIntersecting) {
+          setTimeout(function() { entry.target.classList.add('visible'); }, i * 100);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(function(el) { observer.observe(el); });
+  </script>
+
+</body>
+</html>

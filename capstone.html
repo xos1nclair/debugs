@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capstone — DEBUGS</title>
+  <link rel="stylesheet" href="debugs.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <section id="header-section">
+    <header class="site-header container">
+      <div class="logo">
+        <img src="Debugs (1).png" alt="DEBUGS Logo" class="logo-img">
+        <span>Baranggay Document System</span>
+      </div>
+      <button class="burger-btn" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </header>
+  </section>
+
+  <!-- OVERLAY -->
+  <div class="sidenav-overlay" id="sidenavOverlay"></div>
+
+  <!-- SIDENAV -->
+  <nav class="sidenav" id="sidenav">
+    <div class="sidenav-logo">
+      <img src="Debugs (1).png" alt="DEBUGS Logo">
+      <span>DEBUGS</span>
+    </div>
+    <a href="debugs-v3.html"              class="sidenav-link"><i class="bi bi-house"></i> Home</a>
+    <a href="capstone.html"               class="sidenav-link sidenav-active"><i class="bi bi-journal-text"></i> Capstone</a>
+    <a href="goal.html"                   class="sidenav-link"><i class="bi bi-bullseye"></i> Goal</a>
+    <a href="members.html"                class="sidenav-link"><i class="bi bi-people"></i> Members</a>
+    <a href="Debugs Registration.html" class="sidenav-link sidenav-login"><i class="bi bi-box-arrow-in-right"></i> Log In</a>
+  </nav>
+
+  <!--CAPSTONE CONTENT-->
+  <section class="content-section">
+    <div class="container">
+
+      <!--PAGE TITLE-->
+      <h3 class="reveal">Capstone</h3>
+
+      <!--PROJECT OVERVIEW-->
+      <div class="section-body reveal">
+        <p>
+          <!--DESCRIPTION-->
+          The DEBUGS Baranggay Document System is a capstone project developed by students of
+          Kolehiyo ng Lungsod ng Dasmariñas. It aims to digitize and streamline baranggay
+          document requests and management for residents and baranggay officials alike.
+        </p>
+      </div>
+
+      <!--INFO CARDS-->
+      <div class="info-cards reveal">
+
+        <div class="info-card">
+          <div class="info-card-icon"><i class="bi bi-lightbulb"></i></div>
+          <h4>Project Title</h4>
+          <p>Baranggay Document Management System (DEBUGS)</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon"><i class="bi bi-calendar3"></i></div>
+          <h4>Academic Year</h4>
+          <p>2025 – 2026</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon"><i class="bi bi-mortarboard"></i></div>
+          <h4>Institution</h4>
+          <p>Kolehiyo ng Lungsod ng Dasmariñas</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon"><i class="bi bi-code-slash"></i></div>
+          <h4>Tech Stack</h4>
+          <p>HTML, CSS, JavaScript, PHP, MySQL</p>
+        </div>
+
+      </div>
+
+      <!--DESCRIPTION-->
+      <div class="section-body reveal" style="margin-top: 48px;">
+        <h4 style="font-family:'Cubao',sans-serif; color:var(--gold); font-size:20px; margin-bottom:16px; letter-spacing:1px;">
+          Project Description
+        </h4>
+        <p>
+          <!--Full project description-->
+          This system was developed to address the inefficiencies in manual baranggay document
+          processing. Residents can now submit requests, upload required documents, and track
+          the status of their applications online — reducing wait times and eliminating the
+          need for multiple in-person visits.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer-homepage">
+    <b>All Rights Reserved &copy; 2025 DEBUGS.</b>
+    <div class="contact-info">
+      <span><i class="bi bi-envelope-fill"></i> Debugs@web.com</span>
+      <span><i class="bi bi-telephone-fill"></i> +63 415874586</span>
+      <span><i class="bi bi-geo-alt-fill"></i> Kolehiyo ng Lungsod ng Dasmari&ntilde;as</span>
+    </div>
+  </footer>
+
+  <script>
+    var burgerBtn = document.getElementById('burgerBtn');
+    var sidenav   = document.getElementById('sidenav');
+    var overlay   = document.getElementById('sidenavOverlay');
+
+    function openNav() {
+      sidenav.classList.add('open');
+      overlay.classList.add('show');
+      burgerBtn.classList.add('active');
+      burgerBtn.setAttribute('aria-expanded', 'true');
+      sidenav.insertBefore(burgerBtn, sidenav.firstChild);
+    }
+
+    function closeNav() {
+      sidenav.classList.remove('open');
+      overlay.classList.remove('show');
+      burgerBtn.classList.remove('active');
+      burgerBtn.setAttribute('aria-expanded', 'false');
+      document.querySelector('.site-header').appendChild(burgerBtn);
+    }
+
+    burgerBtn.addEventListener('click', function() {
+      sidenav.classList.contains('open') ? closeNav() : openNav();
+    });
+
+    overlay.addEventListener('click', closeNav);
+
+    var reveals = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry, i) {
+        if (entry.isIntersecting) {
+          setTimeout(function() { entry.target.classList.add('visible'); }, i * 100);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(function(el) { observer.observe(el); });
+  </script>
+
+</body>
+</html>

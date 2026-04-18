@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Access — KLD Management System</title>
+  <link rel="stylesheet" href="debugs.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+  <!-- Minimal header — no sidenav, no burger, no links back -->
+  <section id="header-section">
+    <header class="site-header container">
+      <div class="logo">
+        <img src="Debugs (1).png" alt="DEBUGS Logo" class="logo-img">
+        <span>KLD Management System</span>
+      </div>
+      <!-- No burger / no nav links here intentionally -->
+    </header>
+  </section>
+
+  <!-- ===== ADMIN LOGIN FORM ===== -->
+  <div class="admin-wrapper">
+    <div class="admin-card">
+
+      <i class="bi bi-shield-lock admin-icon"></i>
+      <h2 class="admin-title">Admin Access</h2>
+      <p class="admin-subtitle">Authorized Personnel Only</p>
+
+      <div class="admin-divider"></div>
+
+      <!-- Backend devs: update action to your admin login endpoint -->
+      <form action="websystem.html" method="post">
+
+        <input type="hidden" name="role" value="admin">
+
+        <div class="input-group">
+          <i class="bi bi-envelope-fill input-icon"></i>
+          <input
+            type="email"
+            placeholder="Admin email"
+            name="email"
+            required
+            autocomplete="email"
+          >
+        </div>
+
+        <div class="input-group">
+          <i class="bi bi-lock-fill input-icon"></i>
+          <input
+            type="password"
+            placeholder="Admin password"
+            name="password"
+            required
+            autocomplete="current-password"
+          >
+        </div>
+
+        <button type="submit" class="cta-image-wrapper login-button" style="margin-top: 8px;">
+          <img src="New Project (10).png" alt="Log In" class="cta-graphic">
+        </button>
+
+      </form>
+
+      <div class="admin-notice">
+        <i class="bi bi-info-circle"></i>
+        This page is for authorized admin use only.
+        Do not share this URL publicly.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer-homepage">
+    <b>All Rights Reserved &copy; 2025 DEBUGS.</b>
+    <div class="contact-info">
+      <span><i class="bi bi-envelope-fill"></i> Debugs@web.com</span>
+      <span><i class="bi bi-telephone-fill"></i> +63 415874586</span>
+      <span><i class="bi bi-geo-alt-fill"></i> Kolehiyo ng Lungsod ng Dasmari&ntilde;as</span>
+    </div>
+  </footer>
+
+</body>
+</html>

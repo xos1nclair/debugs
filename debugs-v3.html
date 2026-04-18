@@ -1,0 +1,167 @@
+<!<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KLD Management System — DEBUGS</title>
+  <link rel="stylesheet" href="debugs.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <section id="header-section">
+    <header class="site-header container">
+
+      <div class="logo">
+        <img src="Debugs (1).png" alt="DEBUGS Logo" class="logo-img">
+        <span>KLD Management System</span>
+      </div>
+
+      <!-- BURGER BUTTON -->
+      <button class="burger-btn" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+
+    </header>
+  </section>
+
+  <!-- OVERLAY -->
+  <div class="sidenav-overlay" id="sidenavOverlay"></div>
+
+  <!-- SLIDING SIDENAV -->
+  <nav class="sidenav" id="sidenav">
+    <div class="sidenav-logo">
+      <img src="Debugs (1).png" alt="DEBUGS Logo">
+      <span>DEBUGS</span>
+    </div>
+    <a href="capstone.html"     class="sidenav-link"><i class="bi bi-journal-text"></i> Capstone</a>
+    <a href="goal.html"         class="sidenav-link"><i class="bi bi-bullseye"></i> Goal</a>
+    <a href="members.html"      class="sidenav-link"><i class="bi bi-people"></i> Members</a>
+    <a href="registration.html" class="sidenav-link sidenav-login"><i class="bi bi-box-arrow-in-right"></i> Log In</a>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero-section">
+    <div class="container hero-content">
+
+      <!-- KLD DESIGNED BANNER — replaces New Project (6).png -->
+      <h1 class="hero-title">
+        <div class="kld-hero-banner">
+
+          <!-- Top deco line -->
+          <div class="kld-deco">
+            <div class="kld-deco-line"></div>
+            <span class="kld-deco-diamond">✦</span>
+            <div class="kld-deco-line"></div>
+          </div>
+
+          <!-- Main title text -->
+          <span class="kld-title">Kolehiyo ng Lungsod<br>ng Dasmari&ntilde;as</span>
+          <span class="kld-title" style="font-size: clamp(22px, 4vw, 50px); animation-delay: 0.15s;">Management System</span>
+
+          <!-- Bottom deco line -->
+          <div class="kld-deco">
+            <div class="kld-deco-line"></div>
+            <span class="kld-deco-diamond">✦</span>
+            <div class="kld-deco-line"></div>
+          </div>
+
+          <!-- Subtitle -->
+          <p class="kld-subtitle">Official Digital Platform &nbsp;✦&nbsp; DEBUGS</p>
+
+        </div>
+      </h1>
+
+      <h2>Where you can upload documents online with ease!</h2>
+
+      <a href="registration.html" class="cta-image-wrapper">
+        <img src="New Project (8).png" alt="Get Started" class="cta-graphic">
+      </a>
+
+    </div>
+  </section>
+
+  <div class="hero-divider"></div>
+
+  <!-- ===== FEATURES STRIP ===== -->
+  <section class="features-strip">
+    <div class="container">
+      <div class="feat-item reveal">
+        <div class="feat-icon">📄</div>
+        <div class="feat-title">Upload Documents</div>
+        <p class="feat-text">Submit documents digitally — no queues, no hassle.</p>
+      </div>
+      <div class="feat-item reveal">
+        <div class="feat-icon">🔒</div>
+        <div class="feat-title">Secure &amp; Official</div>
+        <p class="feat-text">Your files are stored safely with restricted access.</p>
+      </div>
+      <div class="feat-item reveal">
+        <div class="feat-icon">📋</div>
+        <div class="feat-title">Request Clearances</div>
+        <p class="feat-text">Apply for clearances and certificates online.</p>
+      </div>
+      <div class="feat-item reveal">
+        <div class="feat-icon">⚡</div>
+        <div class="feat-title">Fast Processing</div>
+        <p class="feat-text">Streamlined workflows mean faster turnaround times.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer-homepage">
+    <b>All Rights Reserved &copy; 2025 DEBUGS.</b>
+    <div class="contact-info">
+      <span><i class="bi bi-envelope-fill"></i> Debugs@web.com</span>
+      <span><i class="bi bi-telephone-fill"></i> +63 415874586</span>
+      <span><i class="bi bi-geo-alt-fill"></i> Kolehiyo ng Lungsod ng Dasmari&ntilde;as</span>
+    </div>
+  </footer>
+
+  <script>
+    var burgerBtn = document.getElementById('burgerBtn');
+    var sidenav   = document.getElementById('sidenav');
+    var overlay   = document.getElementById('sidenavOverlay');
+
+    function openNav() {
+      sidenav.classList.add('open');
+      overlay.classList.add('show');
+      burgerBtn.classList.add('active');
+      burgerBtn.setAttribute('aria-expanded', 'true');
+      sidenav.insertBefore(burgerBtn, sidenav.firstChild);
+    }
+
+    function closeNav() {
+      sidenav.classList.remove('open');
+      overlay.classList.remove('show');
+      burgerBtn.classList.remove('active');
+      burgerBtn.setAttribute('aria-expanded', 'false');
+      document.querySelector('.site-header').appendChild(burgerBtn);
+    }
+
+    burgerBtn.addEventListener('click', function() {
+      sidenav.classList.contains('open') ? closeNav() : openNav();
+    });
+
+    overlay.addEventListener('click', closeNav);
+
+    // Scroll reveal
+    var reveals = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry, i) {
+        if (entry.isIntersecting) {
+          setTimeout(function() {
+            entry.target.classList.add('visible');
+          }, i * 90);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(function(el) { observer.observe(el); });
+  </script>
+
+</body>
+</html>
